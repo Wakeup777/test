@@ -1,0 +1,30 @@
+  # scheme defaults to 'http'.
+
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ['localhost:9090']
+
+  # - job_name: 'node'
+  #   static_configs:
+  #   - targets: ['localhost:9100']
+  #     labels:
+  #       project: 'AAAA'
+  #       env: 'dev'
+  #   - targets: ['188.120.235.229:9222']
+  #     labels:
+  #       project: 'boo'
+  #       env: 'prod'
+
+
+  - job_name: 'node'
+    static_configs:
+    - targets:
+      - localhost:9100
+      - 188.120.235.229:9222
+      labels:
+        project: 'boo'
+        env: 'prod'
+
+  - job_name: 'node_ubunti_cadvisor'
+    static_configs:
+    - targets: ['188.120.235.229:8182']
